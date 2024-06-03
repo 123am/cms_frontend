@@ -62,7 +62,7 @@ const Register = () => {
                         errors.username && <p className="mt-1 text-red-600 text-xs">{errors.username.message}</p>
                     }
                     <label className={errors.password ? "mt-0" : "mt-4"}>Password</label>
-                    <input className='border border-black w-full mx-auto rounded-md h-8 shadow-md shadow-blue-400' type="text" {...register("password", {
+                    <input className='border border-black w-full mx-auto rounded-md h-8 shadow-md shadow-blue-400' type="password" {...register("password", {
                         required: "Password is required"
                     })} />
                     {
