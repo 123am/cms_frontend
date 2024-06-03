@@ -13,6 +13,7 @@ export const Urls={
     addTOCart:"/addTOCart",
     pro_listContent:"/pro_listContent",
     listContent:"/listContent",
+    checkOuthistory:"/checkOuthistory",
     getHistroy:"/getHistroy",
     getMyCart:"/getMyCart"
 }

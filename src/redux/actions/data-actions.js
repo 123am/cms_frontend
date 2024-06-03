@@ -1,7 +1,7 @@
 import Swal from "sweetalert2"
 import { ApiCaller } from "../../utilities/ApiCaller"
 import { Urls } from "../../utilities/Constant"
-import { CART_DASHBOARD, CMS_DASHBOARD, CMS_HISTORY } from "../reducers/data-reducer"
+import { CART_DASHBOARD, CHECKOUT_DASHBOARD, CMS_DASHBOARD, CMS_HISTORY } from "../reducers/data-reducer"
 
 
 const dataActions = {
@@ -45,6 +45,22 @@ const dataActions = {
 
         }
     },
+    checkOuthistory: () => async (dispatch, _) => {
+        try {
+
+            console.log(ApiCaller.getCall, "ApiCaller.getCall")
+            const resp = await ApiCaller.getCall(Urls.checkOuthistory)
+            console.log(resp, "dsahgdjsajdas")
+
+            dispatch(CHECKOUT_DASHBOARD(resp.data.data))
+
+
+        } catch (error) {
+
+        }
+    },
+
+    
     protect_dashboard: () => async (dispatch, _) => {
         try {
 

@@ -9,6 +9,7 @@ import { image_base_url } from "../utilities/Constant"
 import Sidebar from "../components/Sidebar"
 import OneCard from "../components/OneCard"
 import Topbar from "../components/Topbar"
+import HistoryCard from "../components/HistoryCard"
 
 const HistoryCmp = () => {
     const [count, setCount] = useState(0)
@@ -21,7 +22,7 @@ const HistoryCmp = () => {
         return state.auth.userDetails
     })
     const cms_dashboard = useSelector((state) => {
-        return state.data.cms_dashboard
+        return state.data.checkout_dashboard
     })
 
     const {
@@ -35,7 +36,7 @@ const HistoryCmp = () => {
 
     console.log(userDetails.userRoleName, "userDetailsuserDetails")
     useEffect(() => {
-        dispatch(dataActions.dashboard())
+        dispatch(dataActions.checkOuthistory())
     }, [])
 
     let data = ["{}", "{itm}", "{itm}", "{itm}", "{itm}", "{itm}"]
@@ -50,12 +51,12 @@ const HistoryCmp = () => {
             <div className="flex flex-col w-[75vw] items-center">
                 <Topbar/>
                 {
-                    cms_dashboard.filter(itm => itm.title.includes(filter)).length ? <><div className="grid grid-cols-4 gap-2 w-full m-4 p-4">
+                    cms_dashboard.length ? <><div className="grid grid-cols-1 gap-2 w-full m-4 p-4">
 
                         {
-                            cms_dashboard.filter(itm => itm.title.includes(filter)).sort(function (a, b) { return sort == "hl" ? b.price - a.price : a.price - b.price }).map((itm) => {
+                            cms_dashboard.map((itm) => {
                                 return <>
-                                    <OneCard itm={itm} />
+                                    <HistoryCard itm={itm} />
                                 </>
                             })
                         }

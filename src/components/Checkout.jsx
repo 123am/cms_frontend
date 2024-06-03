@@ -5,6 +5,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 import { RiSubtractLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router";
 
 const Checkout = ({ data }) => {
 
@@ -14,9 +15,13 @@ const Checkout = ({ data }) => {
     const [cartCount, setCartCount] = useState([])
     const [tax, setTax] = useState(10)
 
+    const navigate=useNavigate()
+
     const CheckoutCall = () => {
         dispatch(dataActions.CartCheckout({ "subTotal": data.totalSum, "Tax_price": data.tax_price, "Addons": data.addOns, "tax": data.tax, "total_cart_price": data.totalPrice }, () => {
             dispatch(dataActions.getMyCart())
+            navigate("/history")
+            
         }))
     }
 

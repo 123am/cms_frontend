@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     cms_dashboard:[],
     cms_history:[],
-    cart_dashboard:{}
+    cart_dashboard:{},
+    checkout_dashboard:[],
+    
 }
 
 export const dataSlice = createSlice({
@@ -13,6 +15,10 @@ export const dataSlice = createSlice({
         CMS_DASHBOARD:(state,action)=>{
             state.cms_dashboard=action.payload
         },
+        CHECKOUT_DASHBOARD:(state,action)=>{
+            state.checkout_dashboard=action.payload
+        },
+        
         CART_DASHBOARD:(state,action)=>{
             state.cart_dashboard=action.payload
         },
@@ -23,6 +29,6 @@ export const dataSlice = createSlice({
 })
 
 
-export const {CMS_DASHBOARD,CMS_HISTORY,CART_DASHBOARD} = dataSlice.actions
+export const {CMS_DASHBOARD,CHECKOUT_DASHBOARD,CMS_HISTORY,CART_DASHBOARD} = dataSlice.actions
 
 export default dataSlice.reducer
